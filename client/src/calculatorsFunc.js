@@ -16,11 +16,13 @@ const compoundInterest = (initialInvestment, monthlyContribution, years, interes
     let index = 1; // start at 1 because we added first month to result
 
     while (index < numberOfMounts) {
-        
+        //calculate compound interest
         interest = ((total + monthlyContribution) * monthlyInterest) / 100;
-        interest = Number(interest.toFixed(2));
+        interest = Number(interest.toFixed(2)); // make it decimal
+
+        // update total
         total = total + monthlyContribution + interest;
-        total = Number(total.toFixed(2));
+        total = Number(total.toFixed(2)); // make it decimal
         
         result.push({monthlyContribution, interest, total });
 
