@@ -2,7 +2,7 @@
 // input ...
 // return monthly contribution, interest earned, and total balance for x number of month 
 
-const compoundInterest = (initialInvestment, monthlyContribution, years, interestRate) => {
+export const compoundInterest = (initialInvestment, monthlyContribution, years, interestRate) => {
     //set the initial 
     let contribution = initialInvestment + monthlyContribution;
     let compoundAnnually = interestRate / 12; // this is annaully interest only
@@ -28,9 +28,9 @@ const compoundInterest = (initialInvestment, monthlyContribution, years, interes
 
         index ++;
     }
-
+    // console.log((result))
     return result;
 }
 
-console.log(compoundInterest(100, 10, 5, 10));
+// console.log(compoundInterest(100, 10, 5, 10));
 
