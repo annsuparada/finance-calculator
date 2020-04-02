@@ -6,7 +6,7 @@ export const compoundInterest = (initialInvestment, monthlyContribution, years, 
     //set the initial 
     let contribution = initialInvestment + monthlyContribution;
     let compoundAnnually = interestRate / 12; // this is annaully interest only
-    let monthlyInterest = compoundAnnually.toFixed(1); // make it decimal
+    let monthlyInterest = Number(compoundAnnually.toFixed(1)); // make it decimal
 
     //first month result
     let interest = (contribution * monthlyInterest) / 100;
@@ -28,9 +28,10 @@ export const compoundInterest = (initialInvestment, monthlyContribution, years, 
 
         index ++;
     }
-    // console.log((result))
+    
     return result;
 }
+
 
 // console.log(compoundInterest(100, 10, 5, 10));
 
