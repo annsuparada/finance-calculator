@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import { compoundInterest } from '../function/calculatorsFunc';
+import { compoundCalculator } from '../store/actions/index';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { Form, Input, Button, InputNumber } from 'antd';
 
-const CompoundForm = () => {
+const CompoundForm = (props) => {
     const [form, setForm] = useState({
-        initialInvestment: null,
-        monthlyContribution: null,
-        years: null,
-        interestRate: null,
+        initialInvestment: props.compoundInterest.initialInvestment,
+        monthlyContribution: props.compoundInterest.monthlyContribution,
+        years: props.compoundInterest.years,
+        interestRate: props.compoundInterest.interestRate,
     })
+    console.log("form", form)
 
     const handdleChange = (e) => {
         e.preventDefault()
-        console.log(e.target.value)
         setForm({ 
             ...form,
             [e.target.name]: Number(e.target.value)
@@ -22,24 +24,19 @@ const CompoundForm = () => {
 
     const handdleSubmit = (e) => {
         e.preventDefault()
-        console.log(compoundInterest(
+       props.compoundCalculator(
             form.initialInvestment,
             form.monthlyContribution,
             form.years,
             form.interestRate
-        ))
-        // console.log(form.initialInvestment)
-        // setForm({
-        //     initialInvestment: "",
-        //     monthlyContribution: "",
-        //     years: "",
-        //     interestRate: "",
-        // })
+        )
+    
     }
 
     return (  
         <div>
-            {console.log(form)}
+            {console.log('compoundInterest', form.initialInvestment)}
+            {console.log('interestReturn',props.interestReturn)}
             <form onSubmit={handdleSubmit} style={{ display: "flex", flexDirection: "column", width: "250px" }}> 
                 <label>Initial Investment</label>
                 <input 
@@ -78,8 +75,18 @@ const CompoundForm = () => {
             <p>
               
             </p>
+         
         </div>
     );
 }
- 
-export default CompoundForm;
+
+const mapStateToprops = state => ({
+    compoundInterest: state.compoundInterestReducer.compoundInterest,
+    interestReturn: state.compoundInterestReducer.interestReturn,
+})
+export default withRouter(
+    connect(
+        mapStateToprops,
+        { compoundCalculator }
+    )(CompoundForm)
+)

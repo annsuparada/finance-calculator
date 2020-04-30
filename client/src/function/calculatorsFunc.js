@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 //caculate a conpound interest 
 // input ...
 // return monthly contribution, interest earned, and total balance for x number of month 
@@ -31,6 +33,9 @@ export const compoundInterest = (initialInvestment, monthlyContribution, years, 
     
     return result;
 }
+
+
+
 
 
 // console.log(compoundInterest(100, 10, 5, 10));
