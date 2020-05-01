@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+@import './variable';
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Mada';
+	button:focus {
+		outline: none;
+	}
+	padding-top: 64px;
+	background-color: $white;
+	// background-color: $background-color;
+}
+
+a {
+    font-family: 'Noto Sans KR', sans-serif;
+	text-decoration: none;
+	color: inherit;
+	user-select: none;
+	cursor: pointer;
+}
+
+i {
+	font-style: italic;
+}
+
+p {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.5rem;
+	color: $main-dark;
+}
+
+b {
+	font-weight: bold;
+}
+
+h1 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 4.8rem;
+	color: $main-dark;
+}
+
+h2 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 4rem;
+	color: $main-dark;
+}
+
+h3 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 3.6rem;
+	color: $main-dark;
+}
+
+h4 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 2.4rem;
+	color: $main-dark;
+}
+
+h5 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight: bold;
+	font-size: 2rem;
+	color: $main-dark;
+}
+
+h6 {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.8rem;
+	font-weight: 500;
+	color: $main-dark;
+}
+
+input {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.6rem;
+	padding: 10px 15px;
+	outline: none;
+	height: 35px;
+	border-radius: 5px;
+	border: none;
+	color: $main-dark;
+}
+
+textarea {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.6rem;
+	padding: 10px 15px;
+	margin: 10px 0 0;
+	outline: none;
+	border-radius: 5px;
+}
+
+select {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.6rem;
+	border-radius: 5px;
+
+}
+
+hr {
+	width: calc(100% + 20px);
+	margin-left: -10px;
+	border: none;
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
+.display-none {
+	display: none;
+}
+
+.tab {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.dropdown {
+	font-size: 12px;
+}
+
+.ant-btn{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+span{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.ant-form-item-label > label{
+	color: $main-dark;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.ant-modal-title{
+	color: $main-dark;
+	font-family: 'Noto Sans KR', sans-serif;
+}

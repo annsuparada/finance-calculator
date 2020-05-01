@@ -13,7 +13,7 @@ const CompoundForm = (props) => {
     })
     console.log("form", form)
 
-    const handdleChange = (e) => {
+    const handleChange = (e) => {
         e.preventDefault()
         setForm({ 
             ...form,
@@ -43,7 +43,7 @@ const CompoundForm = (props) => {
                     placeholder="Initial Investment"
                     name="initialInvestment"
                     value={form.initialInvestment}
-                    onChange={handdleChange}
+                    onChange={handleChange}
                 />
                 <label>Monthly Contribution</label>
                 <input 
@@ -51,7 +51,7 @@ const CompoundForm = (props) => {
                     placeholder="Monthly Contribution"
                     name="monthlyContribution"
                     value={form.monthlyContribution}
-                    onChange={handdleChange}
+                    onChange={handleChange}
                 />
                 <label>Years</label>
                 <input 
@@ -59,7 +59,7 @@ const CompoundForm = (props) => {
                     placeholder="Years"
                     name="years"
                     value={form.years}
-                    onChange={handdleChange}
+                    onChange={handleChange}
                 />
                 <label>Interest Rate</label>
                 <input 
@@ -67,7 +67,7 @@ const CompoundForm = (props) => {
                     placeholder="Interest Rate"
                     name="interestRate"
                     value={form.interestRate}
-                    onChange={handdleChange}
+                    onChange={handleChange}
                 />
                 <button onClick={e => handdleSubmit(e)}>Calculate</button>
             </form>
