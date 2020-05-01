@@ -6,10 +6,10 @@ import { Form, Input, Button, InputNumber } from 'antd';
 
 const CompoundForm = (props) => {
     const [form, setForm] = useState({
-        initialInvestment: null,
-        monthlyContribution: null,
-        years: null,
-        interestRate: null,
+        initialInvestment: 100,
+        monthlyContribution: 10,
+        years: 10,
+        interestRate: 10,
     })
     
 
@@ -35,7 +35,6 @@ const CompoundForm = (props) => {
 
     return (  
         <div>
-            {console.log('interestReturn',props.interestReturn)}
             <form onSubmit={handdleSubmit} style={{ display: "flex", flexDirection: "column", width: "250px" }}> 
                 <label>Initial Investment</label>
                 <input 
@@ -71,12 +70,6 @@ const CompoundForm = (props) => {
                 />
                 <button onClick={e => handdleSubmit(e)}>Calculate</button>
             </form>
-            {/* {
-                props.interestReturn && props.interestReturn.map(el => (
-                    <p>{el.monthlyContribution}</p>
-                ))
-            }
-          */}
         </div>
     );
 }
