@@ -11,7 +11,7 @@ const CompoundForm = (props) => {
         years: null,
         interestRate: null,
     })
-    console.log("form", form)
+    
 
     const handleChange = (e) => {
         e.preventDefault()
@@ -71,12 +71,12 @@ const CompoundForm = (props) => {
                 />
                 <button onClick={e => handdleSubmit(e)}>Calculate</button>
             </form>
-            {
+            {/* {
                 props.interestReturn && props.interestReturn.map(el => (
                     <p>{el.monthlyContribution}</p>
                 ))
             }
-         
+          */}
         </div>
     );
 }
