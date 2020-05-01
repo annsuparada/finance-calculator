@@ -1,2 +1,2 @@
-# finance-calculator
+# financial-calculator
 - [ ] Compound Interest Calculator 

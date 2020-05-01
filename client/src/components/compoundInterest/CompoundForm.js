@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import { compoundCalculator } from '../../store/actions/index';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { Form, Input, Button, InputNumber } from 'antd';
+import { Form, Input, Button, InputNumber, DatePicker } from 'antd';
 
 const CompoundForm = (props) => {
     const [form, setForm] = useState({
         initialInvestment: 100,
         monthlyContribution: 10,
-        years: 10,
+        years: 3,
         interestRate: 10,
+        date: "",
     })
     
 
     const handleChange = (e) => {
-        e.preventDefault()
+        console.log(e.target.value)
         setForm({ 
             ...form,
             [e.target.name]: Number(e.target.value)
@@ -37,7 +38,7 @@ const CompoundForm = (props) => {
         <div>
             <form onSubmit={handdleSubmit} style={{ display: "flex", flexDirection: "column", width: "250px" }}> 
                 <label>Initial Investment</label>
-                <input 
+                <InputNumber
                     type="number"
                     placeholder="Initial Investment"
                     name="initialInvestment"
@@ -45,28 +46,33 @@ const CompoundForm = (props) => {
                     onChange={handleChange}
                 />
                 <label>Monthly Contribution</label>
-                <input 
-                    type="number"
+                <InputNumber
+                    // type="number"
                     placeholder="Monthly Contribution"
                     name="monthlyContribution"
                     value={form.monthlyContribution}
                     onChange={handleChange}
                 />
                 <label>Years</label>
-                <input 
-                    type="number"
+                <InputNumber
+                    // type="number"
                     placeholder="Years"
                     name="years"
                     value={form.years}
                     onChange={handleChange}
                 />
                 <label>Interest Rate</label>
-                <input 
-                    type="number"
+                <InputNumber
+                    // type="number"
                     placeholder="Interest Rate"
                     name="interestRate"
                     value={form.interestRate}
                     onChange={handleChange}
+                />
+                <DatePicker  
+                    // name="interestRate"
+                    // value={form.date}
+                    // onChange={handleChange}
                 />
                 <button onClick={e => handdleSubmit(e)}>Calculate</button>
             </form>

@@ -35,7 +35,7 @@ const CompoundTable = (props) => {
 
     return (
         <div>
-            {console.log('return', props.interestReturn.length)}
+            {console.log('return', props.interestReturn)}
 
             {returnData.length > 0 ?
                 <>

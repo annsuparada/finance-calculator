@@ -1,6 +1,6 @@
 export const PRINT_COMPOUND_INTEREST = "PRINT_COMPOUND_INTEREST"
 
-export const compoundCalculator = (initialInvestment, monthlyContribution, years, interestRate) => dispatch => {
+export const compoundCalculator = (initialInvestment, monthlyContribution, years, interestRate, date) => dispatch => {
     let calculate = function(){
         //set the initial 
         let contribution = initialInvestment + monthlyContribution;
@@ -15,8 +15,17 @@ export const compoundCalculator = (initialInvestment, monthlyContribution, years
         let numberOfMounts = years * 12;
         let index = 1; // start at 1 because we added first month to result
 
+        // date 
+        // let options = { month: 'long', year: 'numeric' };
+        // date = new Date
+        // let today = date.toLocaleDateString("en-US", options)
+
+        let options = { month: 'short', year: 'numeric' };
+        date = new Date()
+        let today = date.setMonth(date.getMonth())
+        today = date.toLocaleDateString("en-US", options)
         //result
-        let result = [{totalContribution, interest, totalInterest, totalBalance}];
+        let result = [{today, totalContribution, interest, totalInterest, totalBalance}];
 
         while (index < numberOfMounts) {
             //calculate compound interest
@@ -33,8 +42,10 @@ export const compoundCalculator = (initialInvestment, monthlyContribution, years
             totalInterest += interest
             totalInterest = Number(totalInterest.toFixed(2)); // make it decimal
 
+            today = date.setMonth(date.getMonth() + 1)
+            today = date.toLocaleDateString("en-US", options)
 
-            result.push({totalContribution, interest, totalInterest, totalBalance });
+            result.push({today, totalContribution, interest, totalInterest, totalBalance });
 
             index ++;
         }
