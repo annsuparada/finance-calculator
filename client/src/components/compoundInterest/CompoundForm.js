@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { compoundCalculator } from '../store/actions/index';
+import { compoundCalculator } from '../../store/actions/index';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Form, Input, Button, InputNumber } from 'antd';
 
 const CompoundForm = (props) => {
     const [form, setForm] = useState({
-        initialInvestment: props.compoundInterest.initialInvestment,
-        monthlyContribution: props.compoundInterest.monthlyContribution,
-        years: props.compoundInterest.years,
-        interestRate: props.compoundInterest.interestRate,
+        initialInvestment: null,
+        monthlyContribution: null,
+        years: null,
+        interestRate: null,
     })
     console.log("form", form)
 
@@ -35,7 +35,6 @@ const CompoundForm = (props) => {
 
     return (  
         <div>
-            {console.log('compoundInterest', form.initialInvestment)}
             {console.log('interestReturn',props.interestReturn)}
             <form onSubmit={handdleSubmit} style={{ display: "flex", flexDirection: "column", width: "250px" }}> 
                 <label>Initial Investment</label>
@@ -72,16 +71,17 @@ const CompoundForm = (props) => {
                 />
                 <button onClick={e => handdleSubmit(e)}>Calculate</button>
             </form>
-            <p>
-              
-            </p>
+            {
+                props.interestReturn && props.interestReturn.map(el => (
+                    <p>{el.monthlyContribution}</p>
+                ))
+            }
          
         </div>
     );
 }
 
 const mapStateToprops = state => ({
-    compoundInterest: state.compoundInterestReducer.compoundInterest,
     interestReturn: state.compoundInterestReducer.interestReturn,
 })
 export default withRouter(

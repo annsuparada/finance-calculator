@@ -1,11 +1,11 @@
 import React from 'react';
-import CompoundForm from './components/CompoundForm';
-import './App.css';
+import CompoundPage from './components/compoundInterest/CompoundPage';
+
 
 function App() {
   return (
     <div className="App">
-      <CompoundForm />
+      <CompoundPage />
     </div>
   );
 }
