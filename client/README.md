@@ -2,8 +2,8 @@
 - [ ] Create navigation bar
 - [ ] Create main container for desktop
 - [ ] Compound Interest Calculator
-    - [x] Add date input
-    - [x] Return months and years in the compoundCalculator action
+    - [ ] Add date input
+    - [ ] Return months and years in the compoundCalculator action
     - [ ] Fix input number, default should not be 0
     - [ ] Year input should be interger
     - [ ] Add compounded options 
