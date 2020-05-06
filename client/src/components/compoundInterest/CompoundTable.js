@@ -8,7 +8,7 @@ const CompoundTable = (props) => {
     const columns = [
         {
             title: 'Months',
-            dataIndex: 'today',
+            dataIndex: 'thisMonth',
             //   width: 150,
         },
         {
@@ -29,15 +29,17 @@ const CompoundTable = (props) => {
 
     const data = [];
     const footer = []
-    const returnData = props.interestReturn
+    const returnData = props.interestReturn 
+
     for (let i = 0; i < returnData.length; i++) {
         data.push({
             key: i,
-            today: returnData[i].today,
+            thisMonth: returnData[i].thisMonth,
             totalContribution: returnData[i].totalContribution,
             interest: returnData[i].interest,
             totalBalance: returnData[i].totalBalance,
         });
+        //footer
         if (i === returnData.length - 1){
             footer.push({
                 totalBalance: returnData[i].totalBalance,

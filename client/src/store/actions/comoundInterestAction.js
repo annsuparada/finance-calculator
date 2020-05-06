@@ -16,16 +16,15 @@ export const compoundCalculator = (initialInvestment, monthlyContribution, years
         let index = 1; // start at 1 because we added first month to result
 
         // date 
-        // let options = { month: 'long', year: 'numeric' };
-        // date = new Date
-        // let today = date.toLocaleDateString("en-US", options)
-
         let options = { month: 'short', year: 'numeric' };
         let newDate = new Date()
-        let today = newDate.setMonth(newDate.getMonth())
-        today = newDate.toLocaleDateString("en-US", options)
+        let thisMonth = newDate.setMonth(newDate.getMonth())
+        thisMonth = newDate.toLocaleDateString("en-US", options)
+        let monthNum = newDate.getMonth() +1
+        let YearOnly = newDate.getFullYear()
+        
         //result
-        let result = [{today, totalContribution, interest, totalInterest, totalBalance}];
+        let mouthResult = [{monthNum, YearOnly, thisMonth, totalContribution, interest, totalInterest, totalBalance}];
 
         while (index < numberOfMounts) {
             //calculate compound interest
@@ -42,14 +41,19 @@ export const compoundCalculator = (initialInvestment, monthlyContribution, years
             totalInterest += interest
             totalInterest = Number(totalInterest.toFixed(2)); // make it decimal
 
-            today = newDate.setMonth(newDate.getMonth() + 1)
-            today = newDate.toLocaleDateString("en-US", options)
+            thisMonth = newDate.setMonth(newDate.getMonth() + 1)
+            thisMonth = newDate.toLocaleDateString("en-US", options)
+            monthNum = newDate.getMonth() + 1
+            YearOnly = newDate.getFullYear()
 
-            result.push({today, totalContribution, interest, totalInterest, totalBalance });
+            mouthResult.push({monthNum, YearOnly, thisMonth, totalContribution, interest, totalInterest, totalBalance });
+            
 
             index ++;
         }
-        return result
+
+        
+        return mouthResult
     }
     
     return dispatch({

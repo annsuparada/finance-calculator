@@ -6,10 +6,10 @@ import { Form, Input, Button, InputNumber, DatePicker } from 'antd';
 
 const CompoundForm = (props) => {
     const [form, setForm] = useState({
-        initialInvestment: null,
-        monthlyContribution: null,
-        years: null,
-        interestRate: null,
+        initialInvestment: 10,
+        monthlyContribution: 10,
+        years: 3,
+        interestRate: 10,
         // date: '',
     })
     
