@@ -21,10 +21,10 @@ export const compoundCalculator = (initialInvestment, monthlyContribution, years
         let thisMonth = newDate.setMonth(newDate.getMonth())
         thisMonth = newDate.toLocaleDateString("en-US", options)
         let monthNum = newDate.getMonth() +1
-        let YearOnly = newDate.getFullYear()
+        let yearOnly = newDate.getFullYear()
         
         //result
-        let mouthResult = [{monthNum, YearOnly, thisMonth, totalContribution, interest, totalInterest, totalBalance}];
+        let mouthResult = [{monthNum, yearOnly, thisMonth, totalContribution, interest, totalInterest, totalBalance}];
 
         while (index < numberOfMounts) {
             //calculate compound interest
@@ -44,9 +44,9 @@ export const compoundCalculator = (initialInvestment, monthlyContribution, years
             thisMonth = newDate.setMonth(newDate.getMonth() + 1)
             thisMonth = newDate.toLocaleDateString("en-US", options)
             monthNum = newDate.getMonth() + 1
-            YearOnly = newDate.getFullYear()
+            yearOnly = newDate.getFullYear()
 
-            mouthResult.push({monthNum, YearOnly, thisMonth, totalContribution, interest, totalInterest, totalBalance });
+            mouthResult.push({monthNum, yearOnly, thisMonth, totalContribution, interest, totalInterest, totalBalance });
             
 
             index ++;

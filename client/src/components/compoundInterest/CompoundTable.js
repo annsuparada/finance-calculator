@@ -49,7 +49,7 @@ const CompoundTable = (props) => {
 
     return (
         <div>
-            {console.log('return', returnData)}
+            
             {returnData.length > 0 ?
                 <>
                     <h3>Investment Breakdown</h3>
