@@ -12,6 +12,7 @@
             - Quaterly
             - Semi-annually
             - Annually
+    - [ ] Add footer on the table        
     - [ ] Save input to localStorage 
     - [ ] Clear localStorage when page refresh 
     - [ ] Add footer to table

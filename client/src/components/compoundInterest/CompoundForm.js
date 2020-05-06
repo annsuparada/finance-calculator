@@ -6,16 +6,15 @@ import { Form, Input, Button, InputNumber, DatePicker } from 'antd';
 
 const CompoundForm = (props) => {
     const [form, setForm] = useState({
-        initialInvestment: 100,
-        monthlyContribution: 10,
-        years: 3,
-        interestRate: 10,
-        date: "",
+        initialInvestment: null,
+        monthlyContribution: null,
+        years: null,
+        interestRate: null,
+        // date: '',
     })
     
 
     const handleChange = (e) => {
-        console.log(e.target.value)
         setForm({ 
             ...form,
             [e.target.name]: Number(e.target.value)
@@ -31,14 +30,23 @@ const CompoundForm = (props) => {
             form.years,
             form.interestRate
         )
+        
     
     }
+    function onChangeDate(date, dateString) {
+        // console.log(date, dateString)
+        // setForm({ 
+        //     ...form,
+        //     date: e.target.date
+            
+        // })
+      }
 
     return (  
         <div>
             <form onSubmit={handdleSubmit} style={{ display: "flex", flexDirection: "column", width: "250px" }}> 
                 <label>Initial Investment</label>
-                <InputNumber
+                <input
                     type="number"
                     placeholder="Initial Investment"
                     name="initialInvestment"
@@ -46,34 +54,34 @@ const CompoundForm = (props) => {
                     onChange={handleChange}
                 />
                 <label>Monthly Contribution</label>
-                <InputNumber
-                    // type="number"
+                <input
+                    type="number"
                     placeholder="Monthly Contribution"
                     name="monthlyContribution"
                     value={form.monthlyContribution}
                     onChange={handleChange}
                 />
                 <label>Years</label>
-                <InputNumber
-                    // type="number"
+                <input
+                    type="number"
                     placeholder="Years"
                     name="years"
                     value={form.years}
                     onChange={handleChange}
                 />
                 <label>Interest Rate</label>
-                <InputNumber
-                    // type="number"
+                <input
+                    type="number"
                     placeholder="Interest Rate"
                     name="interestRate"
                     value={form.interestRate}
                     onChange={handleChange}
                 />
-                <DatePicker  
-                    // name="interestRate"
+                {/* <DatePicker  
+                    // name="date"
                     // value={form.date}
-                    // onChange={handleChange}
-                />
+                    onChange={onChangeDate}
+                /> */}
                 <button onClick={e => handdleSubmit(e)}>Calculate</button>
             </form>
         </div>

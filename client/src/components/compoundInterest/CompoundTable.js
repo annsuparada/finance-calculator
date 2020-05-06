@@ -7,6 +7,11 @@ const CompoundTable = (props) => {
 
     const columns = [
         {
+            title: 'Months',
+            dataIndex: 'today',
+            //   width: 150,
+        },
+        {
             title: 'Contribution',
             dataIndex: 'totalContribution',
             //   width: 150,
@@ -23,24 +28,36 @@ const CompoundTable = (props) => {
     ];
 
     const data = [];
+    const footer = []
     const returnData = props.interestReturn
     for (let i = 0; i < returnData.length; i++) {
         data.push({
             key: i,
+            today: returnData[i].today,
             totalContribution: returnData[i].totalContribution,
             interest: returnData[i].interest,
             totalBalance: returnData[i].totalBalance,
         });
+        if (i === returnData.length - 1){
+            footer.push({
+                totalBalance: returnData[i].totalBalance,
+            })
+        }
     }
 
     return (
         <div>
-            {console.log('return', props.interestReturn)}
-
+            {console.log('return', returnData)}
             {returnData.length > 0 ?
                 <>
                     <h3>Investment Breakdown</h3>
-                    <Table columns={columns} dataSource={data} scroll={{ y: 500 }} style={{ width: "500px" }} />
+                    <Table 
+                        columns={columns} 
+                        dataSource={data} 
+                        scroll={{ y: 500 }}
+                        footer={() => `Total balance ${footer[0].totalBalance}`}
+                        style={{ width: "500px" }} 
+                    />
                 </>
                 : null
             }
