@@ -1,9 +1,10 @@
 # financial-calculator
 - [ ] Create navigation bar
 - [ ] Create main container for desktop
+- [ ] Form validation
 - [ ] Compound Interest Calculator
-    - [ ] Add date input
-    - [ ] Return months and years in the compoundCalculator action
+    - [x] Add date input
+    - [x] Return months and years in the compoundCalculator action
     - [ ] Fix input number, default should not be 0
     - [ ] Year input should be interger
     - [ ] Add compounded options 

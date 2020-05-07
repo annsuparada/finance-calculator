@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter } from "react-router-dom";
 import { reducer } from "./store/reducers/index";
 import App from './App';
-
+import './styles/global.scss'
 import 'antd/dist/antd.css';
 
 const store = createStore(reducer, applyMiddleware(thunk,logger));

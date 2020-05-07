@@ -4,51 +4,37 @@ import { withRouter } from "react-router-dom";
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
-
+import './compoundChart.scss';
+import ComopundPieChart from './CompoundPieChart';
 
 const CompoundChart = (props) => {
-    const data = [
-        // {
-        //     name: '2020', contribution: 10, balance: 10, 
-        // },
-        // {
-        //     name: '2021', contribution: 20, balance: 25, 
-        // },
-        // {
-        //     name: '2022', contribution: 30, balance: 40, 
-        // },
-        // {
-        //     name: '2023', contribution: 40, balance: 60, 
-        // },
-        // {
-        //     name: '2024', contribution: 50, balance: 80, 
-        // },
-        // {
-        //     name: '2025', contribution: 60, balance: 100, 
-        // },
-        // {
-        //     name: '2026', contribution: 70, balance: 120, 
-        // },
-        
-    ];
+    const data = [];
     const returnData = props.interestReturn 
-        
+    const totalData = []
             for (let i = 0; i < returnData.length; i++) {
-                if (i === 0 || returnData[i].monthNum === 12) {
+                if (i === 0 || returnData[i].monthNum === 12 || i === returnData.length - 1) {
                     data.push({
                         name: returnData[i].yearOnly,
                         totalContribution: returnData[i].totalContribution,
                         totalBalance: returnData[i].totalBalance,
                     });
+                }
+                if (i === returnData.length -1){
+                    totalData.push({
+                        totalContribution: returnData[i].totalContribution,
+                        totalInterest: returnData[i].totalInterest,
+                        totalBalance: returnData[i].totalBalance,
+                    })
+                }
             }
-        }
 
     return (
         <div>
+            {console.log(returnData)}
+            {console.log(totalData)}
             {returnData.length > 0 ? 
-            <>
-
-            CompoundChart
+            <div className="chart-container">
+            {/* CompoundChart */}
             <LineChart
                 width={500}
                 height={300}
@@ -65,7 +51,14 @@ const CompoundChart = (props) => {
                 <Line type="monotone" dataKey="totalBalance" stroke="#8884d8" activeDot={{ r: 8 }} />
                 <Line type="monotone" dataKey="totalContribution" stroke="#82ca9d" />
             </LineChart>
-                </> 
+                <div>
+                    <h4>Contribution: {totalData[0].totalContribution}</h4>
+                    <h4>Interest: {totalData[0].totalInterest}</h4>
+                    <h4>Balance: {totalData[0].totalBalance}</h4>
+                </div>
+            {/* <ComopundPieChart /> */}
+                
+                </div> 
                 : null  
             }
         </div>

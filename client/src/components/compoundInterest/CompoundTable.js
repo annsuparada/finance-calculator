@@ -58,7 +58,7 @@ const CompoundTable = (props) => {
                         dataSource={data} 
                         scroll={{ y: 500 }}
                         footer={() => `Total balance ${footer[0].totalBalance}`}
-                        style={{ width: "500px" }} 
+                        style={{ width: "1000px" }} 
                     />
                 </>
                 : null

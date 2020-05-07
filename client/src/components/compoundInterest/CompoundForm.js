@@ -14,15 +14,14 @@ const CompoundForm = (props) => {
     })
     
 
-    const handleChange = (e) => {
-        setForm({ 
-            ...form,
-            [e.target.name]: Number(e.target.value)
-            
-        })
+    const handleChange = e => {
+    //    setForm({ 
+    //         ...form,
+    //         [e.target.name]: e.target.value
+    //     })
     }
 
-    const handdleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
        props.compoundCalculator(
             form.initialInvestment,
@@ -44,9 +43,11 @@ const CompoundForm = (props) => {
 
     return (  
         <div>
-            <form onSubmit={handdleSubmit} style={{ display: "flex", flexDirection: "column", width: "250px" }}> 
+            <h1>Compound Interest Calculator</h1>
+            {/* style={{ display: "flex", flexDirection: "column", width: "250px" }} */}
+            <Form onSubmit={handleSubmit} > 
                 <label>Initial Investment</label>
-                <input
+                <InputNumber
                     type="number"
                     placeholder="Initial Investment"
                     name="initialInvestment"
@@ -54,7 +55,7 @@ const CompoundForm = (props) => {
                     onChange={handleChange}
                 />
                 <label>Monthly Contribution</label>
-                <input
+                <InputNumber
                     type="number"
                     placeholder="Monthly Contribution"
                     name="monthlyContribution"
@@ -62,7 +63,7 @@ const CompoundForm = (props) => {
                     onChange={handleChange}
                 />
                 <label>Years</label>
-                <input
+                <InputNumber
                     type="number"
                     placeholder="Years"
                     name="years"
@@ -70,7 +71,7 @@ const CompoundForm = (props) => {
                     onChange={handleChange}
                 />
                 <label>Interest Rate</label>
-                <input
+                <InputNumber
                     type="number"
                     placeholder="Interest Rate"
                     name="interestRate"
@@ -82,8 +83,8 @@ const CompoundForm = (props) => {
                     // value={form.date}
                     onChange={onChangeDate}
                 /> */}
-                <button onClick={e => handdleSubmit(e)}>Calculate</button>
-            </form>
+                <Button type="primary" htmlType="submit" onClick={handleSubmit}>Calculate</Button>
+            </Form>
         </div>
     );
 }
