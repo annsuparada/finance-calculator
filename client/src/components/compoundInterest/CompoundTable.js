@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Table } from 'antd';
+import './compoundTable.scss';
 
 const CompoundTable = (props) => {
 
@@ -48,8 +49,7 @@ const CompoundTable = (props) => {
     }
 
     return (
-        <div>
-            
+        <div className="table-container">
             {returnData.length > 0 ?
                 <>
                     <h3>Investment Breakdown</h3>
@@ -58,7 +58,6 @@ const CompoundTable = (props) => {
                         dataSource={data} 
                         scroll={{ y: 500 }}
                         footer={() => `Total balance ${footer[0].totalBalance}`}
-                        style={{ width: "1000px" }} 
                     />
                 </>
                 : null

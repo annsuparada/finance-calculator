@@ -3,6 +3,7 @@ import { compoundCalculator } from '../../store/actions/index';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Form, Input, Button, InputNumber, DatePicker } from 'antd';
+import './compoundForm.scss';
 
 const CompoundForm = (props) => {
     const [form, setForm] = useState({
@@ -15,10 +16,11 @@ const CompoundForm = (props) => {
     
 
     const handleChange = e => {
-    //    setForm({ 
-    //         ...form,
-    //         [e.target.name]: e.target.value
-    //     })
+        // e.preventDefault()
+       setForm({ 
+            ...form,
+            [e.target.name]: Number(e.target.value)
+        })
     }
 
     const handleSubmit = (e) => {
@@ -42,12 +44,12 @@ const CompoundForm = (props) => {
       }
 
     return (  
-        <div>
+        <div className="form-container">
             <h1>Compound Interest Calculator</h1>
             {/* style={{ display: "flex", flexDirection: "column", width: "250px" }} */}
-            <Form onSubmit={handleSubmit} > 
+            <form onSubmit={handleSubmit} > 
                 <label>Initial Investment</label>
-                <InputNumber
+                <input
                     type="number"
                     placeholder="Initial Investment"
                     name="initialInvestment"
@@ -55,7 +57,7 @@ const CompoundForm = (props) => {
                     onChange={handleChange}
                 />
                 <label>Monthly Contribution</label>
-                <InputNumber
+                <input
                     type="number"
                     placeholder="Monthly Contribution"
                     name="monthlyContribution"
@@ -63,7 +65,7 @@ const CompoundForm = (props) => {
                     onChange={handleChange}
                 />
                 <label>Years</label>
-                <InputNumber
+                <input
                     type="number"
                     placeholder="Years"
                     name="years"
@@ -71,7 +73,7 @@ const CompoundForm = (props) => {
                     onChange={handleChange}
                 />
                 <label>Interest Rate</label>
-                <InputNumber
+                <input
                     type="number"
                     placeholder="Interest Rate"
                     name="interestRate"
@@ -83,8 +85,8 @@ const CompoundForm = (props) => {
                     // value={form.date}
                     onChange={onChangeDate}
                 /> */}
-                <Button type="primary" htmlType="submit" onClick={handleSubmit}>Calculate</Button>
-            </Form>
+                <button onClick={handleSubmit}>Calculate</button>
+            </form>
         </div>
     );
 }
