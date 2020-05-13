@@ -34,15 +34,15 @@ const CompoundChart = (props) => {
             {returnData.length > 0 ?
                 <div className="chart-container">
                     {/* CompoundChart */}
-                    <div style={{ width: '100%', height: 300 }}>
-                    <ResponsiveContainer>
+                    {/* <div style={{ width: 500, height: 400 }}>  */}
+                     <ResponsiveContainer width="95%" height={400}>
                     <LineChart
                         // width={500}
                         // height={300}
                         data={data}
-                    // margin={{
-                    //     top: 5, right: 30, left: 20, bottom: 5,
-                    // }}
+                    margin={{
+                        top: 5, right: 30, left: 20, bottom: 5,
+                    }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
@@ -53,12 +53,12 @@ const CompoundChart = (props) => {
                         <Line type="monotone" dataKey="Contribution" stroke="#82ca9d" />
                     </LineChart>
                     </ResponsiveContainer>
-                    </div>
-                    <div className="right">
+                    {/* </div> */}
+                    {/* <div className="right">
                         <h4>Contribution: {totalData[0].totalContribution}</h4>
                         <h4>Interest: {totalData[0].totalInterest}</h4>
                         <h4>Balance: {totalData[0].totalBalance}</h4>
-                    </div>
+                    </div> */}
 
                 </div>
                 : null

@@ -7,10 +7,10 @@ import './compoundForm.scss';
 
 const CompoundForm = (props) => {
     const [form, setForm] = useState({
-        initialInvestment: null,
-        monthlyContribution: null,
-        years: null,
-        interestRate: null,
+        initialInvestment: 100,
+        monthlyContribution: 100,
+        years: 10,
+        interestRate: 10,
         // date: '',
     })
     
