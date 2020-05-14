@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 @import './variable';
+
 html {
 	font-size: 62.5%;
 }
 
 body {
-	font-family: 'Mada';
-	button:focus {
-		outline: none;
-	}
+	// font-family: 'Mada';
+	// button:focus {
+	// 	outline: none;
+	// }
 	padding-top: 64px;
-	background-color: $white;
-	// background-color: $background-color;
+	background-color: $background-color;
 }
 
 a {
@@ -29,7 +29,7 @@ i {
 p {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 1.5rem;
-	color: $main-dark;
+	color: $light-gray;
 }
 
 b {
@@ -40,54 +40,64 @@ h1 {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	font-size: 4.8rem;
-	color: $main-dark;
+	color: $light-gray;
 }
 
 h2 {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	font-size: 4rem;
-	color: $main-dark;
+	color: $light-gray;
 }
 
 h3 {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	font-size: 3.6rem;
-	color: $main-dark;
+	color: $light-gray;
 }
 
 h4 {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	font-size: 2.4rem;
-	color: $main-dark;
+	color: $light-gray;
 }
 
 h5 {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: bold;
 	font-size: 2rem;
-	color: $main-dark;
+	color: $light-gray;
 }
 
 h6 {
 	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 1.8rem;
 	font-weight: 500;
-	color: $main-dark;
+	color: $light-gray;
 }
 
-// input {
-// 	font-family: 'Noto Sans KR', sans-serif;
-// 	font-size: 1.6rem;
-// 	padding: 10px 15px;
-// 	outline: none;
-// 	height: 35px;
-// 	border-radius: 5px;
-// 	border: none;
-// 	color: $main-dark;
-// }
+input {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 1.6rem;
+	padding: 10px 15px;
+	outline: none;
+	height: 35px;
+	border-radius: 5px;
+	border: none;
+	color: $light-gray;
+}
+input:hover {
+	border: 1px solid $black;
+	background-color: #e6e5e6;
+}
+
+label {
+	color: $light-gray;
+	font-size: 2rem;
+	padding: 5px 5px 5px 0;
+}
 
 textarea {
 	font-family: 'Noto Sans KR', sans-serif;
@@ -127,18 +137,3 @@ hr {
 	font-size: 12px;
 }
 
-.ant-btn{
-	font-family: 'Noto Sans KR', sans-serif;
-}
-span{
-	font-family: 'Noto Sans KR', sans-serif;
-}
-
-.ant-form-item-label > label{
-	color: $main-dark;
-	font-family: 'Noto Sans KR', sans-serif;
-}
-.ant-modal-title{
-	color: $main-dark;
-	font-family: 'Noto Sans KR', sans-serif;
-}

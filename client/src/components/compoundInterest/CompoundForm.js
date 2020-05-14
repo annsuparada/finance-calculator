@@ -11,12 +11,10 @@ const CompoundForm = (props) => {
         monthlyContribution: 100,
         years: 10,
         interestRate: 10,
-        // date: '',
     })
     
 
     const handleChange = e => {
-        // e.preventDefault()
        setForm({ 
             ...form,
             [e.target.name]: Number(e.target.value)
@@ -34,19 +32,9 @@ const CompoundForm = (props) => {
         
     
     }
-    function onChangeDate(date, dateString) {
-        // console.log(date, dateString)
-        // setForm({ 
-        //     ...form,
-        //     date: e.target.date
-            
-        // })
-      }
-
     return (  
         <div className="form-container">
             <h1>Compound Interest Calculator</h1>
-            {/* style={{ display: "flex", flexDirection: "column", width: "250px" }} */}
             <form onSubmit={handleSubmit} > 
                 <label>Initial Investment</label>
                 <input
@@ -80,11 +68,6 @@ const CompoundForm = (props) => {
                     value={form.interestRate}
                     onChange={handleChange}
                 />
-                {/* <DatePicker  
-                    // name="date"
-                    // value={form.date}
-                    onChange={onChangeDate}
-                /> */}
                 <button onClick={handleSubmit}>Calculate</button>
             </form>
         </div>
