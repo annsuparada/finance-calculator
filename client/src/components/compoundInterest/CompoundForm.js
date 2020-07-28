@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { compoundCalculator } from '../../store/actions/index';
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -6,13 +6,14 @@ import { Form, Input, Button, InputNumber, DatePicker } from 'antd';
 import './compoundForm.scss';
 
 const CompoundForm = (props) => {
+    let state = props.compound;
+
     const [form, setForm] = useState({
-        initialInvestment: 100,
-        monthlyContribution: 100,
-        years: 10,
-        interestRate: 10,
+        initialInvestment: state.initialInvestment,
+        monthlyContribution: state.monthlyContribution,
+        years: state.years,
+        interestRate: state.interestRate,
     })
-    
 
     const handleChange = e => {
        setForm({ 
@@ -22,19 +23,27 @@ const CompoundForm = (props) => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
        props.compoundCalculator(
             form.initialInvestment,
             form.monthlyContribution,
             form.years,
             form.interestRate
         )
-        
-    
     }
+
+    useEffect(() => {
+      props.compoundCalculator(
+        form.initialInvestment,
+        form.monthlyContribution,
+        form.years,
+        form.interestRate
+      )
+    }, [])
+
     return (  
         <div className="form-container">
-            <h1>Compound Interest Calculator</h1>
+            
             <form onSubmit={handleSubmit} > 
                 <label>Initial Investment</label>
                 <input
@@ -52,7 +61,7 @@ const CompoundForm = (props) => {
                     value={form.monthlyContribution}
                     onChange={handleChange}
                 />
-                <label>Years</label>
+                <label>Length of Time in Years</label>
                 <input
                     type="number"
                     placeholder="Years"
@@ -76,6 +85,7 @@ const CompoundForm = (props) => {
 
 const mapStateToprops = state => ({
     interestReturn: state.compoundInterestReducer.interestReturn,
+    compound: state.compoundInterestReducer.compound,
 })
 export default withRouter(
     connect(

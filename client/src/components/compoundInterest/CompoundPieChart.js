@@ -1,4 +1,9 @@
 import React, { PureComponent } from 'react';
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { compoundCalculator } from '../../store/actions/index';
+
+
 import {
   PieChart, Pie, Sector, Cell,
 } from 'recharts';
@@ -27,12 +32,13 @@ const renderCustomizedLabel = ({
   );
 };
 
-export default class CompoundPieChart extends PureComponent {
+class CompoundPieChart extends PureComponent {
   static jsfiddleUrl = 'https://jsfiddle.net/alidingling/c9pL8k61/';
 
   render() {
     return (
       <PieChart width={400} height={400}>
+        {console.log('compound ===>',this.props.compound)}
         <Pie
           data={data}
           cx={200}
@@ -51,3 +57,14 @@ export default class CompoundPieChart extends PureComponent {
     );
   }
 }
+
+const mapStateToprops = state => ({
+  interestReturn: state.compoundInterestReducer.interestReturn,
+  compound: state.compoundInterestReducer.compound,
+})
+export default withRouter(
+  connect(
+      mapStateToprops,
+      { compoundCalculator }
+  )(CompoundPieChart)
+)

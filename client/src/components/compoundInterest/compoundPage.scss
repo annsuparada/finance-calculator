@@ -2,11 +2,14 @@
 
 .compound-container {
     // width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+   
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // flex-direction: column;
+    .display-form {
+        display: flex;;
+    }
 
     @media #{($desktop)} {
         background-color: pink;

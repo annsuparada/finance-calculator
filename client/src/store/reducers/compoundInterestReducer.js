@@ -4,11 +4,11 @@ import { PRINT_COMPOUND_INTEREST } from "../actions/index";
 export const initialState = {
     isLoading: false,
     error: "",
-    compoundInterest: {
-            initialInvestment: 50,
-            monthlyContribution: null,
-            years: null,
-            interestRate: null,
+    compound: {
+            initialInvestment: 1000,
+            monthlyContribution: 100,
+            years: 10,
+            interestRate: 7,
         },
     interestReturn: []
     
