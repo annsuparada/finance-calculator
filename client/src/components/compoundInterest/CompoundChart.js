@@ -5,7 +5,6 @@ import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 import './compoundChart.scss';
-import ComopundPieChart from './CompoundPieChart';
 
 const CompoundChart = (props) => {
     const data = [];
@@ -31,19 +30,17 @@ const CompoundChart = (props) => {
 
     return (
         <div>
-            {console.log(returnData)}
+            <h3>Growth Chart</h3>
+            <div className="line"></div>
             {returnData.length > 0 ?
                 <div className="chart-container">
                     {/* CompoundChart */}
                     {/* <div style={{ width: '100%', height: 400 }}>  */}
-                     {/* <ResponsiveContainer > */}
+                    {/* <ResponsiveContainer > */}
                     <LineChart
-                        width={500}
-                        height={300}
+                        width={800}
+                        height={500}
                         data={data}
-                    margin={{
-                        top: 5, right: 30, left: 20, bottom: 5,
-                    }}
                     >
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
@@ -55,12 +52,6 @@ const CompoundChart = (props) => {
                     </LineChart>
                     {/* </ResponsiveContainer> */}
                     {/* </div> */}
-                    <div className="right">
-                        <h4>Contribution: {totalData[0].totalContribution}</h4>
-                        <h4>Interest: {totalData[0].totalInterest}</h4>
-                        <h4>Balance: {totalData[0].totalBalance}</h4>
-                    </div>
-
                 </div>
                 : null
             }

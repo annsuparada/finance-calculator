@@ -15,7 +15,7 @@ const CompoundPage = () => {
                 <CompoundForm />
                 <CompoundPieChart />
             </div>
-            {/* <CompoundChart /> */}
+            <CompoundChart />
             <CompoundTable />
         </div>
     );

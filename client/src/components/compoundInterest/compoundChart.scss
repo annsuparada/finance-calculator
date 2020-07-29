@@ -1,27 +1,5 @@
-@import '../../styles/variable';
+@import "../../styles/variable";
 
-// .chart-container{
-//     width: 100%;
-//     display: flex;
-//     justify-content: left;
-//     flex-direction: row;
-//     margin-top: 3%;
-
-   
-//     .recharts-wrapper{
-//         width: 100%;
-//     }
-//     .right{
-//         width: 100%;
-//         border: 1px solid black;
-//     }
-//     @media #{($desktop)} {
-//         flex-direction: column-reverse;
-//         justify-content: center;
-
-//         .recharts-wrapper{
-//         // display: none;
-//         }
-//     }
-// }
-
+.chart-container {
+    margin-bottom: 60px;
+}

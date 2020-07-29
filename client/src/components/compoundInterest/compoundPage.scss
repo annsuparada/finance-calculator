@@ -1,12 +1,46 @@
 @import '../../styles/variable';
 
 .compound-container {
-    // width: 1000px;
-   
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // flex-direction: column;
+    h2 {
+        margin-bottom: 2px;
+        color: $light-blue;
+    }
+    h4 {
+        margin-bottom: 2px;
+        color: $light-blue;
+    }
+    h3 {
+        margin-bottom: 2px;
+        color: $light-blue;
+    }
+    .text {
+        display: flex;
+        justify-content: space-between;
+    }
+    .init-bullet {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;;
+        background-color: #0088FE;
+    }
+    .contrib-bullet {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;;
+        background-color: #00C49F;
+    }
+    .interest-bullet {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;;
+        background-color: #FFBB28;
+    }
+    .left-side-list {
+        display: flex;
+    }
+    p {
+        margin-left: 30px;
+    }
     .display-form {
         display: flex;;
     }

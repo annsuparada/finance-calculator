@@ -10,8 +10,7 @@ export const initialState = {
             years: 10,
             interestRate: 7,
         },
-    interestReturn: []
-    
+    interestReturn: []  
 }
 
 export const compoundInterestReducer = (state = initialState, action) => {

@@ -53,6 +53,7 @@ const CompoundTable = (props) => {
             {returnData.length > 0 ?
                 <>
                     <h3>Investment Breakdown</h3>
+                    <div className="line"></div>
                     <Table 
                         columns={columns} 
                         dataSource={data} 
