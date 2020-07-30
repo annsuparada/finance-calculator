@@ -2,14 +2,19 @@
 
 .form-container {
   width: 100%;
-
+  
   form {
-    // margin: 0 auto;
+    margin-right: 10px;
     max-width: 350px;
     background-color: $dark-blue;
     display: flex;
     flex-direction: column;
     padding: 25px;
+
+    @media #{($tablet)} { 
+      margin: 0 auto;
+      padding-bottom: 35px;
+    }
 
     label {
       color: $white;
